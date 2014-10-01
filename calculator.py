@@ -29,29 +29,39 @@ def power(i, j):
     return i**j
 
 def main():
-    userInput = raw_input("> ")
 
-    # separate user input 
-    userInput = userInput.split()
+    while True:
+        userInput = raw_input("> ")
+        if userInput == "q":
+            break
 
-    if userInput[0] == "+":
-        print "plus"
-    elif userInput[0] == "-":
-        pass
-    elif userInput[0] == "*":
-        pass
-    elif userInput[0] == "/":
-        pass
-    elif userInput[0] == "square":
-        pass
-    elif userInput[0] == "cube":
-        pass
-    elif userInput[0] == "pow":
-        pass
-    elif userInput[0] == "mod":
-        pass
-    elif userInput[0] == "q":
-        return
+        # separate user input 
+        userInput = userInput.split()
+        
+        # convert user input values to integers for math
+        userInput[1] = int(userInput[1])
+        if len(userInput) == 3:
+            userInput[2] = int(userInput[2])
+
+        # determine math function to be called
+        if userInput[0] == "+":
+            print add(userInput[1], userInput[2])
+        elif userInput[0] == "-":
+            print subtract(userInput[1], userInput[2])
+        elif userInput[0] == "*":
+            print multiply(userInput[1], userInput[2])
+        elif userInput[0] == "/":
+            print divide(userInput[1], userInput[2])
+        elif userInput[0] == "square":
+            print square(userInput[1])
+        elif userInput[0] == "cube":
+            print cube(userInput[1])
+        elif userInput[0] == "pow":
+            print power(userInput[1], userInput[2])
+        elif userInput[0] == "mod":
+            print mod(userInput[1], userInput[2])
+        else:
+            print "I don't understand."
 
 
 if __name__ == '__main__':
