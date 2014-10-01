@@ -20,7 +20,7 @@ def multiply(new_list):
     return total
 
 def divide(new_list):
-    total = int(new_list[0])
+    total = float(new_list[0])
     for value in new_list[1:]:
         number = int(value)
         total /= number
