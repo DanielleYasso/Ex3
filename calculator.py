@@ -1,52 +1,52 @@
 import arithmetic
 
-def doMath():
+def do_math():
     while True:
-        userInput = raw_input("> ")
-        if userInput == "q":
+        user_input = raw_input("> ").strip()
+        if user_input == "q":
             break
-    
+
         # separate user input 
-        userInput = userInput.split()
+        input_list = user_input.split()
 
         # determine math function to be called and check for errors
-        if len(userInput) == 1:
-            if userInput[0] in ["+", "-", "*", "/", "pow", "mod", "square", "cube"]:
+        if len(input_list) == 1:
+            if input_list[0] in ["+", "-", "*", "/", "pow", "mod", "square", "cube"]:
                 print "Oops!  You need to tell us more than just that! Try again."
             else:
                 print "I don't understand."
 
-        elif len(userInput) == 2:
+        elif len(input_list) == 2:
             # convert user input values to integers for math
-            userInput[1] = int(userInput[1])
+            second = int(input_list[1])
 
-            if userInput[0] in ["+", "-", "*", "/", "pow", "mod"]:
+            if input_list[0] in ["+", "-", "*", "/", "pow", "mod"]:
                 print "Oops! You need to give us 2 numbers! Try again."
-            elif userInput[0] == "square":
-                print arithmetic.square(userInput[1])
-            elif userInput[0] == "cube":
-                print arithmetic.cube(userInput[1])
+            elif input_list[0] == "square":
+                print arithmetic.square(second)
+            elif input_list[0] == "cube":
+                print arithmetic.cube(second)
             else:
                 print "I don't understand."
 
-        elif len(userInput) == 3:
+        elif len(input_list) == 3:
             # convert user input values to integers for math
-            userInput[1], userInput[2] = int(userInput[1]), int(userInput[2])
+            second, third = int(input_list[1]), int(input_list[2])
 
-            if userInput[0] == "+":
-                print arithmetic.add(userInput[1], userInput[2])
-            elif userInput[0] == "-":
-                print arithmetic.subtract(userInput[1], userInput[2])
-            elif userInput[0] == "*":
-                print arithmetic.multiply(userInput[1], userInput[2])
-            elif userInput[0] == "/":
-                print arithmetic.divide(userInput[1], userInput[2])
-            elif userInput[0] in ["square", "cube"]:
+            if input_list[0] == "+":
+                print arithmetic.add(second, third)
+            elif input_list[0] == "-":
+                print arithmetic.subtract(second, third)
+            elif input_list[0] == "*":
+                print arithmetic.multiply(second, third)
+            elif input_list[0] == "/":
+                print arithmetic.divide(second, third)
+            elif input_list[0] in ["square", "cube"]:
                 print "Oops! You gave us too many numbers!  Just give 1. Try again."
-            elif userInput[0] == "pow":
-                print arithmetic.power(userInput[1], userInput[2])
-            elif userInput[0] == "mod":
-                print arithmetic.mod(userInput[1], userInput[2])
+            elif input_list[0] == "pow":
+                print arithmetic.power(second, third)
+            elif input_list[0] == "mod":
+                print arithmetic.mod(second, third)
             else:
                 print "I don't understand."
         else:
@@ -54,7 +54,7 @@ def doMath():
 
 def main():
 
-    doMath()
+    do_math()
 
 
 if __name__ == '__main__':
