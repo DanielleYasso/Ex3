@@ -1,14 +1,30 @@
-def add(first, second):
-    return first + second
+def add(new_list):
+    total = 0
+    for value in new_list:
+        number = int(value)
+        total += number
+    return total
 
-def subtract(first, second):
-    return first - second
+def subtract(new_list):
+    total = int(new_list[0])
+    for value in new_list[1:]:
+        number = int(value)
+        total -= number
+    return total
 
-def multiply(first, second):
-    return first * second
+def multiply(new_list):
+    total = int(new_list[0])
+    for value in new_list[1:]:
+        number = int(value)
+        total *= number
+    return total
 
-def divide(first, second):
-    return first / second
+def divide(new_list):
+    total = int(new_list[0])
+    for value in new_list[1:]:
+        number = int(value)
+        total /= number
+    return total
 
 def square(i):
     return i*i
@@ -21,3 +37,4 @@ def mod(i, j):
 
 def power(i, j):
     return i**j
+

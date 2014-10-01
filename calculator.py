@@ -29,26 +29,31 @@ def do_math():
             else:
                 print "I don't understand."
 
-        elif len(input_list) == 3:
+        elif len(input_list) >= 3:
             # convert user input values to integers for math
             second, third = int(input_list[1]), int(input_list[2])
 
             if input_list[0] == "+":
-                print arithmetic.add(second, third)
+                print arithmetic.add(input_list[1:])
             elif input_list[0] == "-":
-                print arithmetic.subtract(second, third)
+                print arithmetic.subtract(input_list[1:])
             elif input_list[0] == "*":
-                print arithmetic.multiply(second, third)
+                print arithmetic.multiply(input_list[1:])
             elif input_list[0] == "/":
-                print arithmetic.divide(second, third)
+                print arithmetic.divide(input_list[1:])
             elif input_list[0] in ["square", "cube"]:
                 print "Oops! You gave us too many numbers!  Just give 1. Try again."
-            elif input_list[0] == "pow":
-                print arithmetic.power(second, third)
-            elif input_list[0] == "mod":
-                print arithmetic.mod(second, third)
+            elif input_list[0] in ["pow", "mod"]:
+                # error check for too many numbers
+                if len(input_list) == 3:
+                    if input_list[0] == "pow":
+                        print arithmetic.power(second, third)
+                    elif input_list[0] == "mod":
+                        print arithmetic.mod(second, third)
+                else:
+                    print "Oops! You gave us too many numbers!  Just give 2. Try again."
             else:
-                print "I don't understand."
+                print "I don't understand what kind of math you want me to do."
         else:
             print "I don't understand.  You said too much.  Talk less."
 
